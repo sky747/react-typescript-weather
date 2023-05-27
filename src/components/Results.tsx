@@ -1,25 +1,21 @@
 // Results.tsx
+import { ResultStateType } from "../App";
 
 type ResultsPropsType = {
-  results: {
-    country: string,
-    cityName: string,
-    temperature: string,
-    conditionText: string,
-    icon: string
-  }
+  results: ResultStateType;
 };
 
-const Results = (props: ResultsPropsType) => {
+const Results = ({results}: ResultsPropsType) => {
+  const { country, cityName, temperature, conditionText, icon } = results;
   return (
-    <div>
-      {props.results.country && <div>国名: {props.results.country}</div>}
-      {props.results.cityName && <div>都市名: {props.results.cityName}</div>}
-      {props.results.temperature && <div>気温: {props.results.temperature}<span>℃</span></div>}
-      {props.results.conditionText && <div><img src={props.results.icon} alt="icon" />
-      <span>{props.results.conditionText}</span></div>
+    <>
+      {country && <div className="results-country">国名: {country}</div>}
+      {cityName && <div className="results-city">都市名: {cityName}</div>}
+      {temperature && <div className="results-temp">気温: {temperature}<span>℃</span></div>}
+      {conditionText && <div className="results-condition"><img src={icon} alt="icon" />
+      <span>{conditionText}</span></div>
       }
-    </div>
+    </>
   );
 };
 
