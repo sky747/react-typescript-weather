@@ -4,7 +4,6 @@ import { useState } from "react";
 import Result from "./components/Results";
 import Loading from "./components/Loading";
 import './App.css';
-import { error } from "console";
 
 export type ResultStateType = {
   country: string,
